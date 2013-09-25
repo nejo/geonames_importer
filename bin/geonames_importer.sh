@@ -22,7 +22,8 @@ usage() {
 	echo " This is to operate with the geographic database"
     echo " Where <action> can be one of this: "
 	echo "    download-data Downloads the last packages of data available in GeoNames."
-    echo "    create-db Creates the mysl database structure with no data."
+    echo "    create-db Creates the mysl database structure."
+    echo "    create-tables Creates the mysql tables with no data."
     echo "    import-dumps Imports geonames data into db. A database is previously needed for this to work."
 	echo "    drop-db Removes the db completely."
     echo "    truncate-db Removes geonames data from db."
@@ -112,8 +113,12 @@ case "$action" in
     create-db)
         echo "Creating database $dbname..."
         mysql -h $dbhost -P $dbport -u $dbusername -p$dbpassword -Bse "DROP DATABASE IF EXISTS $dbname;"
-        mysql -h $dbhost -P $dbport -u $dbusername -p$dbpassword -Bse "CREATE DATABASE $dbname DEFAULT CHARACTER SET utf8;" 
-        mysql -h $dbhost -P $dbport -u $dbusername -p$dbpassword -Bse "USE $dbname;" 
+        mysql -h $dbhost -P $dbport -u $dbusername -p$dbpassword -Bse "CREATE DATABASE $dbname DEFAULT CHARACTER SET utf8;"
+    ;;
+
+    create-tables)
+        echo "Creating geonames tables into $dbname..."
+        mysql -h $dbhost -P $dbport -u $dbusername -p$dbpassword -Bse "USE $dbname;"
         mysql -h $dbhost -P $dbport -u $dbusername -p$dbpassword $dbname < $DIR/src/geonames_db_struct.sql
     ;;
         
