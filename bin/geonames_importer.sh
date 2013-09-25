@@ -8,6 +8,7 @@ dbport=3306
 dbname="geonames"
 
 logo() {
+    echo
 	echo "================================================================================================"
 	echo "                           G E O N A M E S    D A T A    I M P O R T E R                        "
 	echo "================================================================================================"
@@ -15,10 +16,9 @@ logo() {
 
 usage() {
 	logo
-	echo "Usage 1: " $0 "--download-data"
-	echo "In this mode the current GeoNames.org's dumps are downloaded to the local machine."
 	echo
-	echo "Usage 2: " $0 "-a <action> -u <user> -p <password> -h <host> -r <port> -n <dbname>"
+	echo "Usage: " $0 "-a <action> -u <user> -p <password> -h <host> -r <port> -n <dbname>"
+	echo
 	echo " This is to operate with the geographic database"
     echo " Where <action> can be one of this: "
 	echo "    download-data     Downloads the last packages of data available in GeoNames."
@@ -62,12 +62,6 @@ if [ $# -lt 1 ]; then
 fi
 
 logo
-
-# Deals operation mode 1 (Download data bundles from geonames.org)
-if { [ $# == 1 ] && [ "$1" == "--download-data" ]; } then
-    download_geonames_data
-	exit 0
-fi
 
 # Deals with operation mode 2 (Database issues...)
 # Parses command line parameters.
