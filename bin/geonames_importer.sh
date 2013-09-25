@@ -90,11 +90,6 @@ if [ -z $dbusername ]; then
     exit 1
 fi
 
-if [ -z $dbpassword ]; then
-    echo "No user password provided for accessing the database. Please write some value in parameter -p..."
-    exit 1
-fi
-
 echo "Database parameters being used..."
 echo "Orden: " $action
 echo "UserName: " $dbusername
