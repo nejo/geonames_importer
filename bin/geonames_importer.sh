@@ -27,6 +27,7 @@ usage() {
     echo "    import-dumps      Imports geonames data into db. A database is previously needed for this to work."
 	echo "    drop-db           Removes the db completely."
     echo "    truncate-db       Removes geonames data from db."
+    echo "    split-tables      Split tables into more specific entities."
     echo
     echo " The rest of parameters indicates the following information:"
 	echo "    -u <user>     User name to access database server."
@@ -114,7 +115,7 @@ case "$action" in
     import-dumps)
         echo "Importing geonames dumps into database $dbname"
         mysql -h $dbhost -P $dbport -u $dbusername -p$dbpassword --local-infile=1 $dbname < $DIR/src/geonames_import_data.sql
-    ;;    
+    ;;
     
     drop-db)
         echo "Dropping $dbname database"
@@ -124,7 +125,13 @@ case "$action" in
     truncate-db)
         echo "Truncating \"geonames\" database"
         mysql -h $dbhost -P $dbport -u $dbusername -p$dbpassword $dbname < $DIR/src/geonames_truncate_db.sql
-    ;;	
+    ;;
+
+    split-tables)
+        echo "Splitting tables by geo entities"
+        mysql -h $dbhost -P $dbport -u $dbusername -p$dbpassword $dbname < $DIR/src/geonames_split_tables.sql
+    ;;
+
 esac
 
 if [ $? == 0 ]; then 
