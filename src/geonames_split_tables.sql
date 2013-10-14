@@ -31,3 +31,18 @@ FROM
 WHERE
     g.fclass =  'P'
     AND g.fcode = 'PPL';
+
+# Get administration 1 LEVEL FROM Spain
+/*
+SELECT gan . alternateName, gg .*
+FROM geo_geoname AS gg
+    JOIN `geo_hierarchy` AS gh
+            ON gg . geonameid = gh . childId
+        JOIN `geo_alternatename` AS gan
+            ON gg . geonameid = gan . geonameid
+               AND gan . isoLanguage = 'es'
+                   AND gan . isShortName = 1
+WHERE gh . parentid = 2510769
+      AND gh . type = 'ADM'
+ORDER BY gan . alternateName ASC
+*/
