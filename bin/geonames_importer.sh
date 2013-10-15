@@ -50,9 +50,9 @@ download_geonames_data() {
 	wget http://download.geonames.org/export/dump/countryInfo.txt -O $DIR/data/countryInfo.txt
 	
     echo "Unzipping compressed files ..." 
-    unzip $DIR/data/allCountries.zip -d $DIR/data/
-	unzip $DIR/data/alternateNames.zip -d $DIR/data/
-	unzip $DIR/data/hierarchy.zip -d $DIR/data/
+    unzip -fo $DIR/data/allCountries.zip -d $DIR/data/
+	unzip -fo $DIR/data/alternateNames.zip -d $DIR/data/
+	unzip -fo $DIR/data/hierarchy.zip -d $DIR/data/
 	
     echo "Removing unneeded files ..." 
     rm $DIR/data/allCountries.zip
