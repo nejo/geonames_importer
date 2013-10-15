@@ -26,7 +26,7 @@ CREATE TABLE geo_geoname (
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE geo_alternatename (
+CREATE TABLE geo_alternate_name (
     alternatenameId INT PRIMARY KEY,
     geonameid     INT,
     isoLanguage   VARCHAR(7),
@@ -39,7 +39,7 @@ CREATE TABLE geo_alternatename (
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE geo_countryinfo (
+CREATE TABLE geo_country (
     iso_alpha2       CHAR(2),
     iso_alpha3       CHAR(3),
     iso_numeric      INTEGER,
@@ -63,7 +63,7 @@ CREATE TABLE geo_countryinfo (
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE geo_iso_languagecodes (
+CREATE TABLE geo_language (
     iso_639_3 CHAR(4),
     iso_639_2 VARCHAR(50),
     iso_639_1 VARCHAR(50),
@@ -72,7 +72,7 @@ CREATE TABLE geo_iso_languagecodes (
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE geo_admin1CodesAscii (
+CREATE TABLE geo_admin1 (
     code CHAR(6),
     name TEXT,
     nameAscii TEXT,
@@ -81,7 +81,7 @@ CREATE TABLE geo_admin1CodesAscii (
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE geo_admin2Codes (
+CREATE TABLE geo_admin2 (
     code CHAR(15),
     name TEXT,
     nameAscii TEXT,
@@ -98,7 +98,7 @@ CREATE TABLE geo_hierarchy (
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE geo_featureCodes (
+CREATE TABLE geo_feature (
     code CHAR(7),
     name VARCHAR(200),
     description TEXT,
@@ -106,7 +106,7 @@ CREATE TABLE geo_featureCodes (
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE geo_timeZones (
+CREATE TABLE geo_timezone (
     id         INT NOT NULL AUTO_INCREMENT,
     timeZoneId VARCHAR(200),
     GMT_offset DECIMAL(3, 1),
@@ -115,7 +115,7 @@ CREATE TABLE geo_timeZones (
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE geo_continentCodes (
+CREATE TABLE geo_continent (
     code CHAR(2),
     name VARCHAR(20),
     geonameid INT,
