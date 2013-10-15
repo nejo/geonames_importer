@@ -39,7 +39,7 @@ usage() {
 }
 
 download_geonames_data() {
-	echo "Downloading GeoNames.org data..." 
+	echo "Downloading GeoNames.org data ..." 
 	wget http://download.geonames.org/export/dump/allCountries.zip -O $DIR/data/allCountries.zip
 	wget http://download.geonames.org/export/dump/alternateNames.zip -O $DIR/data/alternateNames.zip
 	wget http://download.geonames.org/export/dump/hierarchy.zip -O $DIR/data/hierarchy.zip
@@ -48,10 +48,14 @@ download_geonames_data() {
 	wget http://download.geonames.org/export/dump/featureCodes_en.txt -O $DIR/data/featureCodes_en.txt
 	wget http://download.geonames.org/export/dump/timeZones.txt -O $DIR/data/timeZones.txt
 	wget http://download.geonames.org/export/dump/countryInfo.txt -O $DIR/data/countryInfo.txt
-	unzip $DIR/data/allCountries.zip
-	unzip $DIR/data/alternateNames.zip
-	unzip $DIR/data/hierarchy.zip
-	rm $DIR/data/allCountries.zip
+	
+    echo "Unzipping compressed files ..." 
+    unzip $DIR/data/allCountries.zip -d $DIR/data/
+	unzip $DIR/data/alternateNames.zip -d $DIR/data/
+	unzip $DIR/data/hierarchy.zip -d $DIR/data/
+	
+    echo "Removing unneeded files ..." 
+    rm $DIR/data/allCountries.zip
 	rm $DIR/data/alternateNames.zip
 	rm $DIR/data/hierarchy.zip
 }
