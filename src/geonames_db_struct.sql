@@ -87,6 +87,7 @@ CREATE TABLE geo_admin2 (
 
 
 CREATE TABLE geo_hierarchy (
+    hierarchyId INT NOT NULL AUTO_INCREMENT,
     parentId    INT,
     childId     INT,
     type        VARCHAR(50),
