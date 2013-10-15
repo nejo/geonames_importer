@@ -1,5 +1,5 @@
 CREATE TABLE geo_geoname (
-    geonameid  INT PRIMARY KEY,
+    geonameid  INT,
     name       VARCHAR(200),
     asciiname  VARCHAR(200),
     alternatenames VARCHAR(4000),
@@ -23,7 +23,7 @@ CREATE TABLE geo_geoname (
 
 
 CREATE TABLE geo_alternate_name (
-    alternatenameId INT PRIMARY KEY,
+    alternatenameId INT,
     geonameid     INT,
     isoLanguage   VARCHAR(7),
     alternateName VARCHAR(200),
