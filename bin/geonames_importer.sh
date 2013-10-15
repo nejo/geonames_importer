@@ -48,12 +48,12 @@ download_geonames_data() {
 	wget http://download.geonames.org/export/dump/featureCodes_en.txt -O $DIR/data/featureCodes_en.txt
 	wget http://download.geonames.org/export/dump/timeZones.txt -O $DIR/data/timeZones.txt
 	wget http://download.geonames.org/export/dump/countryInfo.txt -O $DIR/data/countryInfo.txt
-	unzip data/allCountries.zip
-	unzip data/alternateNames.zip
-	unzip data/hierarchy.zip
-	rm data/allCountries.zip
-	rm data/alternateNames.zip
-	rm data/hierarchy.zip
+	unzip $DIR/data/allCountries.zip
+	unzip $DIR/data/alternateNames.zip
+	unzip $DIR/data/hierarchy.zip
+	rm $DIR/data/allCountries.zip
+	rm $DIR/data/alternateNames.zip
+	rm $DIR/data/hierarchy.zip
 }
 
 if [ $# -lt 1 ]; then
