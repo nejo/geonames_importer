@@ -2,68 +2,68 @@
 -- CREATE DATABASE geonames DEFAULT CHARACTER SET utf8;
 -- USE geonames;
 
-CREATE TABLE geoname (
-    geonameid int PRIMARY KEY,
-    name varchar(200),
-    asciiname varchar(200),
-    alternatenames varchar(4000),
-    latitude decimal(10,7),
-    longitude decimal(10,7),
-    fclass char(1),
-    fcode varchar(10),
-    country varchar(2),
-    cc2 varchar(60),
-    admin1 varchar(20),
-    admin2 varchar(80),
-    admin3 varchar(20),
-    admin4 varchar(20),
-    population int,
-    elevation int,
-    gtopo30 int,
-    timezone varchar(40),
-    moddate date,
+CREATE TABLE geo_geoname (
+    geonameid  INT PRIMARY KEY,
+    name       VARCHAR(200),
+    asciiname  VARCHAR(200),
+    alternatenames VARCHAR(4000),
+    latitude   DECIMAL(10, 7),
+    longitude  DECIMAL(10, 7),
+    fclass     CHAR(1),
+    fcode      VARCHAR(10),
+    country    VARCHAR(2),
+    cc2        VARCHAR(60),
+    admin1     VARCHAR(20),
+    admin2     VARCHAR(80),
+    admin3     VARCHAR(20),
+    admin4     VARCHAR(20),
+    population INT,
+    elevation  INT,
+    gtopo30    INT,
+    timezone   VARCHAR(40),
+    moddate    DATE,
     PRIMARY KEY (geonameid)
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE alternatename (
-    alternatenameId int PRIMARY KEY,
-    geonameid int,
-    isoLanguage varchar(7),
-    alternateName varchar(200),
+CREATE TABLE geo_alternatename (
+    alternatenameId INT PRIMARY KEY,
+    geonameid     INT,
+    isoLanguage   VARCHAR(7),
+    alternateName VARCHAR(200),
     isPreferredName BOOLEAN,
-    isShortName BOOLEAN,
-    isColloquial BOOLEAN,
-    isHistoric BOOLEAN,
+    isShortName   BOOLEAN,
+    isColloquial  BOOLEAN,
+    isHistoric    BOOLEAN,
     PRIMARY KEY (alternatenameId)
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE countryinfo (
-    iso_alpha2 char(2),
-    iso_alpha3 char(3),
-    iso_numeric integer,
-    fips_code varchar(3),
-    name varchar(200),
-    capital varchar(200),
-    areainsqkm double,
-    population integer,
-    continent char(2),
-    tld char(3),
-    currency char(3),
-    currencyName char(20),
-    Phone char(10),
-    postalCodeFormat varchar(100),
-    postalCodeRegex varchar(255),
-    geonameId int,
-    languages varchar(200),
-    neighbours char(100),
-    equivalentFipsCode char(10),
+CREATE TABLE geo_countryinfo (
+    iso_alpha2       CHAR(2),
+    iso_alpha3       CHAR(3),
+    iso_numeric      INTEGER,
+    fips_code        VARCHAR(3),
+    name             VARCHAR(200),
+    capital          VARCHAR(200),
+    areainsqkm       DOUBLE,
+    population       INTEGER,
+    continent        CHAR(2),
+    tld              CHAR(3),
+    currency         CHAR(3),
+    currencyName     CHAR(20),
+    Phone            CHAR(10),
+    postalCodeFormat VARCHAR(100),
+    postalCodeRegex  VARCHAR(255),
+    geonameId        INT,
+    languages        VARCHAR(200),
+    neighbours       CHAR(100),
+    equivalentFipsCode CHAR(10),
     PRIMARY KEY (iso_alpha2)
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE iso_languagecodes(
+CREATE TABLE geo_iso_languagecodes (
     iso_639_3 CHAR(4),
     iso_639_2 VARCHAR(50),
     iso_639_1 VARCHAR(50),
@@ -72,33 +72,33 @@ CREATE TABLE iso_languagecodes(
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE admin1CodesAscii (
+CREATE TABLE geo_admin1CodesAscii (
     code CHAR(6),
     name TEXT,
     nameAscii TEXT,
-    geonameid int,
+    geonameid INT,
     PRIMARY KEY (code, geonameid)
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE admin2Codes (
+CREATE TABLE geo_admin2Codes (
     code CHAR(15),
     name TEXT,
     nameAscii TEXT,
-    geonameid int,
+    geonameid INT,
     PRIMARY KEY (code, geonameid)
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE hierarchy (
-    parentId int,
-    childId int,
-    type VARCHAR(50),
+CREATE TABLE geo_hierarchy (
+    parentId INT,
+    childId INT,
+    type    VARCHAR(50),
     PRIMARY KEY (hierarchyId)
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE featureCodes (
+CREATE TABLE geo_featureCodes (
     code CHAR(7),
     name VARCHAR(200),
     description TEXT,
@@ -106,16 +106,16 @@ CREATE TABLE featureCodes (
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE timeZones (
-    id int NOT NULL AUTO_INCREMENT,
+CREATE TABLE geo_timeZones (
+    id         INT NOT NULL AUTO_INCREMENT,
     timeZoneId VARCHAR(200),
-    GMT_offset DECIMAL(3,1),
-    DST_offset DECIMAL(3,1),
+    GMT_offset DECIMAL(3, 1),
+    DST_offset DECIMAL(3, 1),
     PRIMARY KEY (id)
 ) CHARACTER SET utf8;
 
 
-CREATE TABLE continentCodes (
+CREATE TABLE geo_continentCodes (
     code CHAR(2),
     name VARCHAR(20),
     geonameid INT,
