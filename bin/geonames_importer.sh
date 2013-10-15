@@ -40,14 +40,14 @@ usage() {
 
 download_geonames_data() {
 	echo "Downloading GeoNames.org data..." 
-	wget http://download.geonames.org/export/dump/allCountries.zip -o $DIR/data/allCountries.zip
-	wget http://download.geonames.org/export/dump/alternateNames.zip -o $DIR/data/alternateNames.zip
-	wget http://download.geonames.org/export/dump/hierarchy.zip -o $DIR/data/hierarchy.zip
-	wget http://download.geonames.org/export/dump/admin1CodesASCII.txt -o $DIR/data/admin1CodesASCII.txt
-	wget http://download.geonames.org/export/dump/admin2Codes.txt -o $DIR/data/admin2Codes.txt
-	wget http://download.geonames.org/export/dump/featureCodes_en.txt -o $DIR/data/featureCodes_en.txt
-	wget http://download.geonames.org/export/dump/timeZones.txt -o $DIR/data/timeZones.txt
-	wget http://download.geonames.org/export/dump/countryInfo.txt -o $DIR/data/countryInfo.txt
+	wget http://download.geonames.org/export/dump/allCountries.zip -O $DIR/data/allCountries.zip
+	wget http://download.geonames.org/export/dump/alternateNames.zip -O $DIR/data/alternateNames.zip
+	wget http://download.geonames.org/export/dump/hierarchy.zip -O $DIR/data/hierarchy.zip
+	wget http://download.geonames.org/export/dump/admin1CodesASCII.txt -O $DIR/data/admin1CodesASCII.txt
+	wget http://download.geonames.org/export/dump/admin2Codes.txt -O $DIR/data/admin2Codes.txt
+	wget http://download.geonames.org/export/dump/featureCodes_en.txt -O $DIR/data/featureCodes_en.txt
+	wget http://download.geonames.org/export/dump/timeZones.txt -O $DIR/data/timeZones.txt
+	wget http://download.geonames.org/export/dump/countryInfo.txt -O $DIR/data/countryInfo.txt
 	unzip data/allCountries.zip
 	unzip data/alternateNames.zip
 	unzip data/hierarchy.zip
