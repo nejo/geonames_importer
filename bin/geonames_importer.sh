@@ -49,16 +49,19 @@ download_geonames_data() {
 	wget http://download.geonames.org/export/dump/featureCodes_en.txt -O $DIR/data/featureCodes_en.txt
 	wget http://download.geonames.org/export/dump/timeZones.txt -O $DIR/data/timeZones.txt
 	wget http://download.geonames.org/export/dump/countryInfo.txt -O $DIR/data/countryInfo.txt
+	wget http://download.geonames.org/export/zip/allCountries.zip -O $DIR/data/postalCodes/allCountries.zip
 	
     echo "Unzipping compressed files ..." 
     unzip -fo $DIR/data/allCountries.zip -d $DIR/data/
 	unzip -fo $DIR/data/alternateNames.zip -d $DIR/data/
 	unzip -fo $DIR/data/hierarchy.zip -d $DIR/data/
+    unzip -fo $DIR/data/postalCodes/allCountries.zip -d $DIR/data/postalCodes/
 	
     echo "Removing unneeded files ..." 
     rm $DIR/data/allCountries.zip
 	rm $DIR/data/alternateNames.zip
 	rm $DIR/data/hierarchy.zip
+	rm $DIR/data/postalCodes/allCountries.zip
 }
 
 if [ $# -lt 1 ]; then
