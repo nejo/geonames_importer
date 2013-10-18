@@ -119,3 +119,19 @@ CREATE TABLE geo_continent (
     geoname_id  INT,
     PRIMARY KEY (code)
 ) CHARACTER SET utf8;
+
+CREATE TABLE geo_postal_code (
+    postal_code  VARCHAR(20),
+    country_code CHAR(2),
+    name         VARCHAR(180),
+    admin1_name  VARCHAR(100) COMMENT 'state name',
+    admin1_code  VARCHAR(20) COMMENT 'state code',
+    admin2_name  VARCHAR(100) COMMENT 'county/province name',
+    admin2_code  VARCHAR(20) COMMENT 'county/province code',
+    admin3_name  VARCHAR(100) COMMENT 'community name',
+    admin3_code  VARCHAR(20) COMMENT 'community code',
+    latitude     DECIMAL(10, 7),
+    longitude    DECIMAL(10, 7),
+    accuracy     TINYINT(1) COMMENT 'accuracy of lat/lng from 1=estimated to 6=centroid',
+    PRIMARY KEY (postal_code, country_code)
+) CHARACTER SET utf8;

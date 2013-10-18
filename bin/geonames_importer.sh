@@ -99,8 +99,8 @@ if [ -z $dbusername ]; then
 fi
 
 echo "Database parameters being used..."
-echo "Orden: " $action
-echo "UserName: " $dbusername
+echo "Action: " $action
+echo "Username: " $dbusername
 echo "Password: " $dbpassword
 echo "DB Host: " $dbhost
 echo "DB Port: " $dbport
