@@ -8,6 +8,7 @@ data/hierarchy.txt
 data/iso-languagecodes.txt
 data/timeZones.txt
 data/no-country
+data/postalCodes/allCountries.txt
 
 # no ignore, absent on geonames.org
 # data/continentCodes.txt
