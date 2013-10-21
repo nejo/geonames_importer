@@ -1,6 +1,6 @@
 
 CREATE TABLE IF NOT EXISTS geo_city (
-    geonameid   int PRIMARY KEY,
+    geoname_id   int PRIMARY KEY,
     name        varchar(200),
     latitude    decimal(10,7),
     longitude   decimal(10,7),
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS geo_city (
 
 INSERT INTO geo_city
 SELECT
-    g.geonameid,
+    g.geoname_id,
     g.name,
     g.latitude,
     g.longitude,
@@ -35,15 +35,15 @@ WHERE
 
 # Get administration 1 LEVEL FROM Spain
 /*
-SELECT gan.alternate_name, gg.*
+SELECT gan.name, gg.*
 FROM geo_geoname AS gg
     JOIN `geo_hierarchy` AS gh
         ON gg.geoname_id = gh.child_id
-    JOIN `geo_alternatename` AS gan
+    JOIN `geo_alternate_names` AS gan
         ON gg.geoname_id = gan.geoname_id
         AND gan.iso_language = 'es'
         AND gan.is_short = 1
-WHERE gh.parentid = 2510769
+WHERE gh.parent_id = 2510769
     AND gh.type = 'ADM'
-ORDER BY gan.alternateName ASC
+ORDER BY gan.name ASC
 */
