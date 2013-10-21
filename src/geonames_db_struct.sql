@@ -1,5 +1,5 @@
 CREATE TABLE geo_geoname (
-    geoname_id      INT,
+    id              INT,
     name            VARCHAR(200),
     name_ascii      VARCHAR(200),
     alternate_names VARCHAR(4000),
