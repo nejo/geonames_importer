@@ -23,7 +23,7 @@ CREATE TABLE geo_geoname (
 
 
 CREATE TABLE geo_alternate_name (
-    alternate_name_id   INT,
+    id                  INT,
     geoname_id          INT,
     iso_language        VARCHAR(7),
     name                VARCHAR(200),
