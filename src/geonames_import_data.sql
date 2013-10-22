@@ -1,12 +1,12 @@
 LOAD DATA LOCAL INFILE 'data/allCountries.txt'
 INTO TABLE geo_geoname
 CHARACTER SET 'UTF8'
-(geoname_id, name, name_ascii, alternate_names, latitude, longitude, feature_class, feature_code, country, cc2, admin1, admin2, admin3, admin4, population, elevation, gtopo30, timezone, mod_date);
+(id, name, name_ascii, alternate_names, latitude, longitude, feature_class, feature_code, country, cc2, admin1, admin2, admin3, admin4, population, elevation, gtopo30, timezone, mod_date);
 
 LOAD DATA LOCAL INFILE 'data/alternateNames.txt'
 INTO TABLE geo_alternate_name
 CHARACTER SET 'UTF8'
-(alternate_name_id, geoname_id, iso_language, name, is_preferred, is_short, is_colloquial, is_historic);
+(id, geoname_id, iso_language, name, is_preferred, is_short, is_colloquial, is_historic);
 
 LOAD DATA LOCAL INFILE 'data/iso-languagecodes.txt'
 INTO TABLE geo_language
@@ -38,7 +38,7 @@ LOAD DATA LOCAL INFILE 'data/timeZones.txt'
 INTO TABLE geo_timezone
 CHARACTER SET 'UTF8'
 IGNORE 1 LINES
-(timezone_id, gmt_offset, dst_offset);
+(country_code, id, gmt_offset, dst_offset, raw_offset);
 
 LOAD DATA LOCAL INFILE 'data/countryInfo.txt'
 INTO TABLE geo_country
