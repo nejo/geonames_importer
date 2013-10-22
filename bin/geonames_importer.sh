@@ -52,10 +52,10 @@ download_geonames_data() {
 	wget http://download.geonames.org/export/zip/allCountries.zip -O $DIR/data/postalCodes/allCountries.zip
 	
     echo "Unzipping compressed files ..." 
-    unzip -fo $DIR/data/allCountries.zip -d $DIR/data/
-	unzip -fo $DIR/data/alternateNames.zip -d $DIR/data/
-	unzip -fo $DIR/data/hierarchy.zip -d $DIR/data/
-    unzip -fo $DIR/data/postalCodes/allCountries.zip -d $DIR/data/postalCodes/
+    unzip -o $DIR/data/allCountries.zip -d $DIR/data/
+	unzip -o $DIR/data/alternateNames.zip -d $DIR/data/
+	unzip -o $DIR/data/hierarchy.zip -d $DIR/data/
+    unzip -o $DIR/data/postalCodes/allCountries.zip -d $DIR/data/postalCodes/
 	
     echo "Removing unneeded files ..." 
     rm $DIR/data/allCountries.zip
