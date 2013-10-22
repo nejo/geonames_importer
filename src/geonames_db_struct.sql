@@ -64,7 +64,7 @@ CREATE TABLE geo_language (
     iso_639_3       CHAR(4)         COMMENT 'ISO 639-3 code',
     iso_639_2       VARCHAR(50)     COMMENT 'ISO 639-2 code',
     name            VARCHAR(200),
-    PRIMARY KEY (code)
+    PRIMARY KEY (iso_639_3)
 ) CHARACTER SET utf8;
 
 
