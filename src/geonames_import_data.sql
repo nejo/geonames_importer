@@ -51,3 +51,8 @@ INTO TABLE geo_continent
 CHARACTER SET 'UTF8'
 FIELDS TERMINATED BY ','
 (code, name, geoname_id);
+
+LOAD DATA LOCAL INFILE 'data/postalCodes/allCountries.txt'
+INTO TABLE geo_postal_code
+CHARACTER SET 'UTF8'
+(country_code, postal_code, name, admin1_name, admin1_code, admin2_name, admin2_code, admin3_name, admin3_code, latitude, longitude, accuracy);
