@@ -106,8 +106,8 @@ CREATE TABLE geo_feature (
 CREATE TABLE geo_timezone (
     id          INT NOT NULL AUTO_INCREMENT,
     timezone_id VARCHAR(200),
-    gmt_offset  DECIMAL(3, 1),
-    dst_offset  DECIMAL(3, 1),
+    gmt_offset  DECIMAL(3, 1)                   COMMENT 'GMT offset on 1st of January',
+    dst_offset  DECIMAL(3, 1)                   COMMENT 'DST offset to gmt on 1st of July (of the current year)',
     PRIMARY KEY (id)
 ) CHARACTER SET utf8;
 
