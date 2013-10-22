@@ -38,7 +38,7 @@ LOAD DATA LOCAL INFILE 'data/timeZones.txt'
 INTO TABLE geo_timezone
 CHARACTER SET 'UTF8'
 IGNORE 1 LINES
-(timezone_id, gmt_offset, dst_offset);
+(country_code, id, gmt_offset, dst_offset, raw_offset);
 
 LOAD DATA LOCAL INFILE 'data/countryInfo.txt'
 INTO TABLE geo_country
