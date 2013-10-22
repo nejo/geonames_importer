@@ -12,7 +12,7 @@ LOAD DATA LOCAL INFILE 'data/iso-languagecodes.txt'
 INTO TABLE geo_language
 CHARACTER SET 'UTF8'
 IGNORE 1 LINES
-(iso_639_3, iso_639_2, iso_639_1, name);
+(iso_639_3, iso_639_2, code, name);
 
 LOAD DATA LOCAL INFILE 'data/admin1CodesASCII.txt'
 INTO TABLE geo_admin1
@@ -27,7 +27,7 @@ CHARACTER SET 'UTF8'
 LOAD DATA LOCAL INFILE 'data/hierarchy.txt'
 INTO TABLE geo_hierarchy
 CHARACTER SET 'UTF8'
-(parent_id, child_id, type);
+(parent_id, child_id, feature_code);
 
 LOAD DATA LOCAL INFILE 'data/featureCodes_en.txt'
 INTO TABLE geo_feature
@@ -44,7 +44,7 @@ LOAD DATA LOCAL INFILE 'data/countryInfo.txt'
 INTO TABLE geo_country
 CHARACTER SET 'UTF8'
 IGNORE 51 LINES
-(iso_alpha2, iso_alpha3, iso_numeric, fips_code, name, capital, area, population, continent, tld, currency, currency_name, phone, postal_code_format, postal_code_regex, languages, geoname_id, neighbours, equivalent_fips_code);
+(code, iso_alpha3, iso_numeric, fips_code, name, capital, area, population, continent, tld, currency, currency_name, phone_prefix, postal_code_format, postal_code_regex, languages, geoname_id, neighbours, equivalent_fips_code);
 
 LOAD DATA LOCAL INFILE 'data/continentCodes.txt'
 INTO TABLE geo_continent
