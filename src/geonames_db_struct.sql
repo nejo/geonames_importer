@@ -116,6 +116,6 @@ CREATE TABLE geo_timezone (
 CREATE TABLE geo_continent (
     code        CHAR(2),
     name        VARCHAR(20),
-    geoname_id   INT,
+    geoname_id  INT,
     PRIMARY KEY (code)
 ) CHARACTER SET utf8;
