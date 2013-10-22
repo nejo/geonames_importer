@@ -16,7 +16,7 @@ CREATE TABLE geo_geoname (
     population      INT,
     elevation       INT             COMMENT 'in meters',
     gtopo30         INT             COMMENT 'digital elevation model, srtm3 or gtopo30, average elevation of 3''x3'' (ca 90mx90m) or 30''x30'' (ca 900mx900m) area in meters',
-    timezone        VARCHAR(40)     COMMENT 'the timezone id, see geo_timezone table',
+    timezone        VARCHAR(100)    COMMENT 'the timezone id, see geo_timezone table',
     mod_date        DATE            COMMENT 'date of last modification in yyyy-MM-dd format',
     PRIMARY KEY (geoname_id)
 ) CHARACTER SET utf8;
@@ -104,10 +104,11 @@ CREATE TABLE geo_feature (
 
 
 CREATE TABLE geo_timezone (
-    id          INT NOT NULL AUTO_INCREMENT,
-    timezone_id VARCHAR(200),
-    gmt_offset  DECIMAL(3, 1)                   COMMENT 'GMT offset on 1st of January',
-    dst_offset  DECIMAL(3, 1)                   COMMENT 'DST offset to gmt on 1st of July (of the current year)',
+    country_code    VARCHAR(5),
+    id              VARCHAR(100),
+    gmt_offset      DECIMAL(3, 1)   COMMENT 'GMT offset on 1st of January',
+    dst_offset      DECIMAL(3, 1)   COMMENT 'DST offset to gmt on 1st of July (of the current year)',
+    raw_offset      DECIMAL(3, 1)   COMMENT 'Raw offset without DST',
     PRIMARY KEY (id)
 ) CHARACTER SET utf8;
 
