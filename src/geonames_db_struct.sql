@@ -18,7 +18,7 @@ CREATE TABLE geo_geoname (
     gtopo30         INT             COMMENT 'digital elevation model, srtm3 or gtopo30, average elevation of 3''x3'' (ca 90mx90m) or 30''x30'' (ca 900mx900m) area in meters',
     timezone        VARCHAR(100)    COMMENT 'the timezone id, see geo_timezone table',
     mod_date        DATE            COMMENT 'date of last modification in yyyy-MM-dd format',
-    PRIMARY KEY (geoname_id)
+    PRIMARY KEY (id)
 ) CHARACTER SET utf8;
 
 
@@ -31,12 +31,12 @@ CREATE TABLE geo_alternate_name (
     is_short            BOOLEAN,
     is_colloquial       BOOLEAN,
     is_historic         BOOLEAN,
-    PRIMARY KEY (alternate_name_id)
+    PRIMARY KEY (id)
 ) CHARACTER SET utf8;
 
 
 CREATE TABLE geo_country (
-    iso_alpha2              CHAR(2),
+    code                    CHAR(2),
     iso_alpha3              CHAR(3),
     iso_numeric             INTEGER,
     fips_code               VARCHAR(3)      COMMENT 'Federal Information Processing Standards code',
@@ -51,20 +51,20 @@ CREATE TABLE geo_country (
     phone_prefix            CHAR(10),
     postal_code_format      VARCHAR(100)    COMMENT '#=number,@=char',
     postal_code_regex       VARCHAR(255),
-    geoname_id              INT,
     languages               VARCHAR(200)    COMMENT 'language codes in different standards, comma separated',
     neighbours              CHAR(100)       COMMENT 'Neighbour country codes, comma separated',
     equivalent_fips_code    CHAR(10)        COMMENT 'Additional FIPS code',
-    PRIMARY KEY (iso_alpha2)
+    geoname_id              INT,
+    PRIMARY KEY (code)
 ) CHARACTER SET utf8;
 
 
 CREATE TABLE geo_language (
+    code            VARCHAR(50)     COMMENT 'ISO 639-1 code. Most commonly used code',
     iso_639_3       CHAR(4)         COMMENT 'ISO 639-3 code',
     iso_639_2       VARCHAR(50)     COMMENT 'ISO 639-2 code',
-    iso_639_1       VARCHAR(50)     COMMENT 'ISO 639-1 code. Most commonly used code',
     name            VARCHAR(200),
-    PRIMARY KEY (iso_639_3)
+    PRIMARY KEY (code)
 ) CHARACTER SET utf8;
 
 
@@ -87,11 +87,11 @@ CREATE TABLE geo_admin2 (
 
 
 CREATE TABLE geo_hierarchy (
-    hierarchy_id    INT NOT NULL AUTO_INCREMENT,
+    id              INT NOT NULL AUTO_INCREMENT,
     parent_id       INT,
     child_id        INT,
     feature_code    VARCHAR(50)                     COMMENT 'see http://www.geonames.org/export/codes.html',
-    PRIMARY KEY (hierarchy_id)
+    PRIMARY KEY (id)
 ) CHARACTER SET utf8;
 
 
@@ -104,8 +104,8 @@ CREATE TABLE geo_feature (
 
 
 CREATE TABLE geo_timezone (
-    country_code    VARCHAR(5),
     id              VARCHAR(100),
+    country_code    VARCHAR(5),
     gmt_offset      DECIMAL(3, 1)   COMMENT 'GMT offset on 1st of January',
     dst_offset      DECIMAL(3, 1)   COMMENT 'DST offset to gmt on 1st of July (of the current year)',
     raw_offset      DECIMAL(3, 1)   COMMENT 'Raw offset without DST',
