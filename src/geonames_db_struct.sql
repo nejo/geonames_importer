@@ -80,8 +80,8 @@ CREATE TABLE geo_admin1 (
 CREATE TABLE geo_admin2 (
     code        CHAR(15),
     name        TEXT,
-    name_ascii   TEXT,
-    geoname_id   INT,
+    name_ascii  TEXT,
+    geoname_id  INT,
     PRIMARY KEY (code, geoname_id)
 ) CHARACTER SET utf8;
 
@@ -90,13 +90,13 @@ CREATE TABLE geo_hierarchy (
     hierarchy_id    INT NOT NULL AUTO_INCREMENT,
     parent_id       INT,
     child_id        INT,
-    type            VARCHAR(50),
+    feature_code    VARCHAR(50)                     COMMENT 'see http://www.geonames.org/export/codes.html',
     PRIMARY KEY (hierarchy_id)
 ) CHARACTER SET utf8;
 
 
 CREATE TABLE geo_feature (
-    code        CHAR(7),
+    code        CHAR(7)         COMMENT 'see http://www.geonames.org/export/codes.html',
     name        VARCHAR(200),
     description TEXT,
     PRIMARY KEY (code)
