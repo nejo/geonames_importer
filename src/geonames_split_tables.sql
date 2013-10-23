@@ -1,16 +1,17 @@
 
 CREATE TABLE IF NOT EXISTS geo_city (
-    geoname_id   int PRIMARY KEY,
-    name        varchar(200),
-    latitude    decimal(10,7),
-    longitude   decimal(10,7),
-    country     varchar(2),
-    admin1      varchar(20),
-    admin2      varchar(80),
-    admin3      varchar(20),
-    admin4      varchar(20),
-    population  int,
-    timezone    varchar(40)
+    geoname_id  INT PRIMARY KEY,
+    name        VARCHAR(200),
+    latitude    DECIMAL(10,7),
+    longitude   DECIMAL(10,7),
+    country     CHAR(2),
+    admin1      VARCHAR(20),
+    admin2      VARCHAR(80),
+    admin3      VARCHAR(20),
+    admin4      VARCHAR(20),
+    population  BIGINT,
+    timezone    VARCHAR(40)
+    PRIMARY KEY (geoname_id)
 ) CHARACTER SET utf8;
 
 INSERT INTO geo_city
