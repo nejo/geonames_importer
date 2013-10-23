@@ -39,12 +39,12 @@ WHERE
 SELECT gan.name, gg.*
 FROM geo_geoname AS gg
     JOIN `geo_hierarchy` AS gh
-        ON gg.geoname_id = gh.child_id
-    JOIN `geo_alternate_names` AS gan
-        ON gg.geoname_id = gan.geoname_id
-        AND gan.iso_language = 'es'
+        ON gg.id = gh.child_id
+    JOIN `geo_alternate_name` AS gan
+        ON gg.id = gan.geoname_id
+        AND gan.language_code = 'es'
         AND gan.is_short = 1
 WHERE gh.parent_id = 2510769
-    AND gh.type = 'ADM'
+    AND gh.feature_code = 'ADM'
 ORDER BY gan.name ASC
 */
