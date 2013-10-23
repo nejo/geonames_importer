@@ -1,16 +1,16 @@
 
 CREATE TABLE IF NOT EXISTS geo_city (
-    geoname_id  INT PRIMARY KEY,
-    name        VARCHAR(200),
-    latitude    DECIMAL(10,7),
-    longitude   DECIMAL(10,7),
-    country     CHAR(2),
-    admin1      VARCHAR(20),
-    admin2      VARCHAR(80),
-    admin3      VARCHAR(20),
-    admin4      VARCHAR(20),
-    population  BIGINT,
-    timezone    VARCHAR(40)
+    geoname_id      INT PRIMARY KEY,
+    name            VARCHAR(200),
+    latitude        DECIMAL(10,7),
+    longitude       DECIMAL(10,7),
+    country_code    CHAR(2),
+    admin1          VARCHAR(20),
+    admin2          VARCHAR(80),
+    admin3          VARCHAR(20),
+    admin4          VARCHAR(20),
+    population      BIGINT,
+    timezone_id     VARCHAR(40)
     PRIMARY KEY (geoname_id)
 ) CHARACTER SET utf8;
 
@@ -20,18 +20,19 @@ SELECT
     g.name,
     g.latitude,
     g.longitude,
-    g.country,
+    g.country_code,
     g.admin1,
     g.admin2,
     g.admin3,
     g.admin4,
     g.population,
-    g.timezone
+    g.timezone_id
 FROM
     geo_geoname AS g
 WHERE
     g.fclass =  'P'
     AND g.fcode = 'PPL';
+    # AND g.population > 2000;
 
 
 # Get administration 1 LEVEL FROM Spain
@@ -39,12 +40,12 @@ WHERE
 SELECT gan.name, gg.*
 FROM geo_geoname AS gg
     JOIN `geo_hierarchy` AS gh
-        ON gg.geoname_id = gh.child_id
-    JOIN `geo_alternate_names` AS gan
-        ON gg.geoname_id = gan.geoname_id
-        AND gan.iso_language = 'es'
+        ON gg.id = gh.child_id
+    JOIN `geo_alternate_name` AS gan
+        ON gg.id = gan.geoname_id
+        AND gan.language_code = 'es'
         AND gan.is_short = 1
 WHERE gh.parent_id = 2510769
-    AND gh.type = 'ADM'
+    AND gh.feature_code = 'ADM'
 ORDER BY gan.name ASC
 */
