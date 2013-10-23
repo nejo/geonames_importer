@@ -6,7 +6,7 @@ CHARACTER SET 'UTF8'
 LOAD DATA LOCAL INFILE 'data/alternateNames.txt'
 INTO TABLE geo_alternate_name
 CHARACTER SET 'UTF8'
-(id, geoname_id, iso_language, name, is_preferred, is_short, is_colloquial, is_historic);
+(id, geoname_id, language_code, name, is_preferred, is_short, is_colloquial, is_historic);
 
 LOAD DATA LOCAL INFILE 'data/iso-languagecodes.txt'
 INTO TABLE geo_language

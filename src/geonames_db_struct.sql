@@ -25,7 +25,7 @@ CREATE TABLE geo_geoname (
 CREATE TABLE geo_alternate_name (
     id                  INT,
     geoname_id          INT,
-    iso_language        VARCHAR(7),
+    language_code       VARCHAR(7),
     name                VARCHAR(200),
     is_preferred        BOOLEAN,
     is_short            BOOLEAN,
