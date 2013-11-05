@@ -1,6 +1,6 @@
 
-CREATE TABLE IF NOT EXISTS geo_city (
-    geoname_id      INT PRIMARY KEY,
+CREATE TABLE geo_city (
+    geoname_id      INT,
     name            VARCHAR(200),
     latitude        DECIMAL(10,7),
     longitude       DECIMAL(10,7),
@@ -10,13 +10,13 @@ CREATE TABLE IF NOT EXISTS geo_city (
     admin3          VARCHAR(20),
     admin4          VARCHAR(20),
     population      BIGINT,
-    timezone_id     VARCHAR(40)
+    timezone_id     VARCHAR(40),
     PRIMARY KEY (geoname_id)
 ) CHARACTER SET utf8;
 
 INSERT INTO geo_city
 SELECT
-    g.geoname_id,
+    g.id,
     g.name,
     g.latitude,
     g.longitude,
@@ -30,8 +30,8 @@ SELECT
 FROM
     geo_geoname AS g
 WHERE
-    g.fclass =  'P'
-    AND g.fcode = 'PPL';
+    g.feature_class =  'P'
+    AND g.feature_code = 'PPL';
     # AND g.population > 2000;
 
 
