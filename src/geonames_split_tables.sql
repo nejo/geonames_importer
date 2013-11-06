@@ -30,9 +30,7 @@ SELECT
 FROM
     geo_geoname AS g
 WHERE
-    g.feature_class =  'P'
-    AND g.feature_code = 'PPL';
-    # AND g.population > 2000;
+    g.feature_class =  'P';
 
 
 # Get administration 1 LEVEL FROM Spain
