@@ -1,16 +1,16 @@
 
 CREATE TABLE geo_city (
     id              INT COMMENT "Geoname Id",
-    name            VARCHAR(200),
-    latitude        DECIMAL(10,7),
-    longitude       DECIMAL(10,7),
-    country_code    CHAR(2),
-    admin1          VARCHAR(20),
-    admin2          VARCHAR(80),
-    admin3          VARCHAR(20),
-    admin4          VARCHAR(20),
+    name            VARCHAR(200)    COMMENT 'name of geographical point (utf8)',
+    latitude        DECIMAL(10,7)   COMMENT 'latitude in decimal degrees (wgs84)',
+    longitude       DECIMAL(10,7)   COMMENT 'longitude in decimal degrees (wgs84)',
+    country_code    CHAR(2)         COMMENT 'ISO-3166 2-letter country code',
+    admin1          VARCHAR(20)     COMMENT 'fipscode (subject to change to iso code) see geo_admin1 table. ISO codes are used for US, CH, BE and ME. UK and Greece are using an additional level between country and fips code. See geo_admin1 table',
+    admin2          VARCHAR(80)     COMMENT 'code for the second administrative division, a county in the US. See geo_admin2 table',
+    admin3          VARCHAR(20)     COMMENT 'code for third level administrative division',
+    admin4          VARCHAR(20)     COMMENT 'code for fourth level administrative division',
     population      BIGINT,
-    timezone_id     VARCHAR(40),
+    timezone_id     VARCHAR(100),   COMMENT 'the timezone id, see geo_timezone table',
     PRIMARY KEY (geoname_id)
 ) CHARACTER SET utf8;
 
