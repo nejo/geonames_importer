@@ -1,6 +1,6 @@
 
 CREATE TABLE geo_city (
-    geoname_id      INT,
+    id              INT COMMENT "Geoname Id",
     name            VARCHAR(200),
     latitude        DECIMAL(10,7),
     longitude       DECIMAL(10,7),
