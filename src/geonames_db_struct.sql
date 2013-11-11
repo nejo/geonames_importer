@@ -48,7 +48,7 @@ CREATE TABLE geo_country (
     tld                     CHAR(3)         COMMENT 'Top Level Domain',
     currency                CHAR(3)         COMMENT 'Currency code',
     currency_name           CHAR(20),
-    phone_prefix            CHAR(10),
+    phone_prefix            CHAR(20),
     postal_code_format      VARCHAR(100)    COMMENT '#=number,@=char',
     postal_code_regex       VARCHAR(255),
     languages               VARCHAR(200)    COMMENT 'language codes in different standards, comma separated',
