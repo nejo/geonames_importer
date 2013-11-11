@@ -10,7 +10,7 @@ CREATE TABLE geo_city (
     admin4          VARCHAR(20)     COMMENT 'code for fourth level administrative division',
     population      BIGINT,
     timezone_id     VARCHAR(100)   COMMENT 'the timezone id, see geo_timezone table',
-    PRIMARY KEY (geoname_id)
+    PRIMARY KEY (id)
 ) CHARACTER SET utf8;
 
 INSERT INTO geo_city
